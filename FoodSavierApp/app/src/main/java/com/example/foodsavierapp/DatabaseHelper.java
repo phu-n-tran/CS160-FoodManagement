@@ -21,12 +21,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String FOOD_TABLE = "FOOD";
     private static final String FOOD_COL_1_NAME = "NAME";
     private static final String FOOD_COL_2_CATEGORY = "CATEGORY";
+    private static final String FOOD_COL_3_ESTIMATEDAYS = "ESTIMATEDAYS";
 
     private static final String OWNS_TABLE = "OWNS";
     private static final String OWNS_COL_1_USERNAME = "A_USERNAME";
     private static final String OWNS_COL_2_FOODNAME = "FOODNAME";
     private static final String OWNS_COL_3_QUALITY = "QUALITY";
-    private static final String OWNS_COL_4_EXPIRATIONDATE = "EXPIRATION";
+    private static final String OWNS_COL_4_STARTDATE = "STARTDATE";
+    private static final String OWNS_COL_5_REMAINDAYS = "REMAINDAYS";
 
 
     private static final String CREATE_TABLE_ACCOUNT = "CREATE TABLE " + ACCOUNT_TABLE + " (" +
@@ -34,15 +36,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ACCOUNT_COL_3_USERNAME + " TEXT PRIMARY KEY, " + ACCOUNT_COL_4_PASSWORD + " TEXT);";
 
     private  static final String CREATE_TABLE_FOOD = "CREATE TABLE " + FOOD_TABLE + " (" +
-            FOOD_COL_1_NAME + " TEXT PRIMARY KEY, " + FOOD_COL_2_CATEGORY + " TEXT);";
+            FOOD_COL_1_NAME + " TEXT PRIMARY KEY, " + FOOD_COL_2_CATEGORY + " TEXT, " +
+            FOOD_COL_3_ESTIMATEDAYS + " INTEGER);";
 
     private static final  String CREATE_TABLE_OWNS = "CREATE TABLE " + OWNS_TABLE + " (" +
             OWNS_COL_1_USERNAME + " TEXT, " + OWNS_COL_2_FOODNAME + " TEXT, " + OWNS_COL_3_QUALITY +
-            " INTEGER, " + OWNS_COL_4_EXPIRATIONDATE + " TEXT, FOREIGN KEY (" +
-            OWNS_COL_1_USERNAME + ") REFERENCES " + ACCOUNT_TABLE + "(" + ACCOUNT_COL_3_USERNAME +
-            "), FOREIGN KEY (" + OWNS_COL_2_FOODNAME + ") REFERENCES " + FOOD_TABLE + "(" +
-            FOOD_COL_1_NAME + "), PRIMARY KEY (" + OWNS_COL_1_USERNAME + ", " +
-            OWNS_COL_2_FOODNAME + ") );";
+            " INTEGER, " + OWNS_COL_4_STARTDATE + " TEXT, " + OWNS_COL_5_REMAINDAYS +
+            " INTEGER, FOREIGN KEY (" + OWNS_COL_1_USERNAME + ") REFERENCES " + ACCOUNT_TABLE +
+            "(" + ACCOUNT_COL_3_USERNAME + "), FOREIGN KEY (" + OWNS_COL_2_FOODNAME +
+            ") REFERENCES " + FOOD_TABLE + "(" + FOOD_COL_1_NAME + "), PRIMARY KEY (" +
+            OWNS_COL_1_USERNAME + ", " + OWNS_COL_2_FOODNAME + ") );";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -54,6 +57,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_ACCOUNT);
         db.execSQL(CREATE_TABLE_FOOD);
         db.execSQL(CREATE_TABLE_OWNS);
+
+        // Adding the default for food table
+        addDefaultFood(db);
     }
 
     @Override
@@ -62,6 +68,87 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + OWNS_TABLE);
         onCreate(db);
+    }
+
+
+    private void addDefaultFood(SQLiteDatabase db) {
+        //***********FREEZER SECTION**************************
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(FOOD_COL_1_NAME, "Chocolate ice cream");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Freezer");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 60);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Pizza");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Freezer");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 60);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Shrimps");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Freezer");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 90);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+
+        //****************FRIDGE SECTION*************************
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Almond milk");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Fridge");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 15);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Apple juice");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Fridge");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 150);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Bacon");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Fridge");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 15);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Chicken");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Fridge");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 6);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Milk");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Fridge");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 20);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+
+        //**************PANTRY SECTION**************************
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Banana");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Pantry");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 6);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Cookies");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Pantry");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 10);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "White bread");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Pantry");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 10);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Brown bread");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Pantry");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 10);
+        db.insert(FOOD_TABLE, null, contentValues);
+
     }
 
     // closing database
@@ -121,11 +208,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //******************************************
     //*********FOOD METHODS*******************
     //******************************************
-    public boolean insertFood (String name, String category) {
+    public boolean insertFood (String name, String category, int est_days) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(FOOD_COL_1_NAME, name);
         contentValues.put(FOOD_COL_2_CATEGORY, category);
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, est_days);
         long result = db.insert(FOOD_TABLE, null, contentValues);
 
         if (db != null && db.isOpen())
