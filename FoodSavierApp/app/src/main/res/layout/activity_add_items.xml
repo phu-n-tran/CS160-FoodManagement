@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddItemsActivity">
+
+
+    <Button
+        android:id="@+id/btnFreezerAddItems"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:enabled="false"
+        android:text="FREEZER"
+        android:layout_toLeftOf="@+id/btnPantryAddItems"
+        />
+
+    <Button
+        android:id="@+id/btnFridgeAddItems"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:text="FRIDGE"
+        android:layout_toRightOf="@id/btnPantryAddItems"/>
+
+    <Button
+        android:id="@+id/btnPantryAddItems"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:text="PANTRY"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageButton
+        android:id="@+id/imageButtonSearchAddItems"
+        android:layout_width="54dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="70dp"
+        android:layout_toRightOf="@+id/editTextSearchResultAddItems"
+
+        android:src="@android:drawable/ic_search_category_default" />
+
+    <EditText
+        android:id="@+id/editTextSearchResultAddItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:ems="10"
+        android:hint="Enter item name"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/btnFridgeAddItems"
+
+         />
+
+    <ScrollView
+        android:id="@+id/scrollViewAddFreezer"
+        android:layout_width="473dp"
+        android:layout_height="650dp"
+        android:layout_marginTop="149dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c1"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/c1Image"
+                        android:layout_width="47dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/freezer_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.75"
+                        app:layout_constraintStart_toEndOf="@+id/c1FoodTiltle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.815" />
+
+                    <TextView
+                        android:id="@+id/c1FoodTiltle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chocolate ice cream"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.183"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.285" />
+
+                    <TextView
+                        android:id="@+id/c1ExpiredDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expire in +60 days"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.117"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.737" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c2"
+                android:layout_below="@+id/c1"
+                android:layout_marginTop="25dp"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/c2Image"
+                        android:layout_width="47dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/freezer_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.75"
+                        app:layout_constraintStart_toEndOf="@+id/c2FoodTiltle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.815" />
+
+                    <TextView
+                        android:id="@+id/c2FoodTiltle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pizza"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.183"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.285" />
+
+                    <TextView
+                        android:id="@+id/c2ExpiredDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expire in +60 days"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.117"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.737" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c3"
+                android:layout_marginTop="25dp"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/c2"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c4"
+                android:layout_marginTop="25dp"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/c3"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c5"
+                android:layout_marginTop="25dp"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/c4"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
