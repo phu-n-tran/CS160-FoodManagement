@@ -80,7 +80,9 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                                         failFlag = false;
                                         Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
+                                        i.putExtra("username", editUsername.getText().toString());
                                         startActivity(i);
+                                        break;
                                     }
                                 }
 

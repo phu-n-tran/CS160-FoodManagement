@@ -20,6 +20,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DashboardActivity.this, AddItemsActivity.class);
+                i.putExtra("username", getIntent().getStringExtra("username"));
                 startActivity(i);
             }
         });
@@ -29,6 +30,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DashboardActivity.this, ProfileActivity.class);
+                i.putExtra("username", getIntent().getStringExtra("username"));
                 startActivity(i);
             }
         });
@@ -38,6 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DashboardActivity.this, LogActivity.class);
+                i.putExtra("username", getIntent().getStringExtra("username"));
                 startActivity(i);
             }
         });

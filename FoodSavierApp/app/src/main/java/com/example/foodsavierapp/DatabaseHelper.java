@@ -91,6 +91,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 90);
         db.insert(FOOD_TABLE, null, contentValues);
 
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Fish fillet");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Freezer");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 90);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Chicken nuggets");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Freezer");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 120);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+
+
 
         //****************FRIDGE SECTION*************************
         contentValues.clear();
@@ -147,6 +161,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(FOOD_COL_1_NAME, "Brown bread");
         contentValues.put(FOOD_COL_2_CATEGORY, "Pantry");
         contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 10);
+        db.insert(FOOD_TABLE, null, contentValues);
+
+        contentValues.clear();
+        contentValues.put(FOOD_COL_1_NAME, "Earl grey tea");
+        contentValues.put(FOOD_COL_2_CATEGORY, "Pantry");
+        contentValues.put(FOOD_COL_3_ESTIMATEDAYS, 60);
         db.insert(FOOD_TABLE, null, contentValues);
 
     }
@@ -230,6 +250,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from " + FOOD_TABLE, null);
         return res;
     }
+
+    public Cursor getAllFoodsPantry() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + FOOD_TABLE + " where " +
+                FOOD_COL_2_CATEGORY + " like 'Pantry'", null);
+        return res;
+    }
+
+    public Cursor getAllFoodsFreezer() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + FOOD_TABLE + " where " +
+                FOOD_COL_2_CATEGORY + " like 'Freezer'", null);
+        return res;
+    }
+
+    public Cursor getAllFoodsFridge() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + FOOD_TABLE + " where " +
+                FOOD_COL_2_CATEGORY + " like 'Fridge'", null);
+        return res;
+    }
+
 
 
 

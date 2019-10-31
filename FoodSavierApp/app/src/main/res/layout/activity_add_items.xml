@@ -12,27 +12,35 @@
         android:layout_width="85dp"
         android:layout_height="40dp"
         android:enabled="false"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/cardview_light_background"
         android:text="FREEZER"
         android:layout_toLeftOf="@+id/btnPantryAddItems"
-        />
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/btnFridgeAddItems"
         android:layout_width="85dp"
         android:layout_height="40dp"
+        android:background="@drawable/style_button_border"
+        android:textColor="@color/colorPrimary"
         android:text="FRIDGE"
-        android:layout_toRightOf="@id/btnPantryAddItems"/>
+        android:layout_toRightOf="@id/btnPantryAddItems"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/btnPantryAddItems"
         android:layout_width="85dp"
         android:layout_height="40dp"
+        android:background="@drawable/style_button_border"
+        android:textColor="@color/colorPrimary"
         android:text="PANTRY"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="10dp"/>
 
     <ImageButton
         android:id="@+id/imageButtonSearchAddItems"
+        android:enabled="false"
         android:layout_width="54dp"
         android:layout_height="35dp"
         android:layout_marginLeft="5dp"
@@ -68,17 +76,17 @@
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
-
+<!--begin 1st cardView -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/c1"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="#69c370"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="10dp" >
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -87,42 +95,36 @@
                         android:layout_width="47dp"
                         android:layout_height="42dp"
                         android:src="@drawable/freezer_icon"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.75"
-                        app:layout_constraintStart_toEndOf="@+id/c1FoodTiltle"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.815" />
+                        android:layout_marginLeft="190dp"
+                        android:layout_marginTop="20dp"
+                        />
 
                     <TextView
-                        android:id="@+id/c1FoodTiltle"
+                        android:id="@+id/c1FoodTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chocolate ice cream"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.183"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.285" />
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+
+                        />
 
                     <TextView
                         android:id="@+id/c1ExpiredDays"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Expire in +60 days"
+                        android:text="Expire in + 60 days"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.117"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.737" />
+                        android:layout_below="@id/c1FoodTitle"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+<!--begin 2nd cardView -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/c2"
                 android:layout_below="@+id/c1"
@@ -130,11 +132,11 @@
                 android:layout_width="250dp"
                 android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="#69c370"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="10dp" >
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -143,42 +145,36 @@
                         android:layout_width="47dp"
                         android:layout_height="42dp"
                         android:src="@drawable/freezer_icon"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.75"
-                        app:layout_constraintStart_toEndOf="@+id/c2FoodTiltle"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.815" />
+                        android:layout_marginLeft="190dp"
+                        android:layout_marginTop="20dp"
+                        />
 
                     <TextView
-                        android:id="@+id/c2FoodTiltle"
+                        android:id="@+id/c2FoodTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pizza"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.183"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.285" />
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+
+                        />
 
                     <TextView
                         android:id="@+id/c2ExpiredDays"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Expire in +60 days"
+                        android:text="Expire in + 60 days"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.117"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.737" />
+                        android:layout_below="@id/c2FoodTitle"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+<!--begin 3rd cardView -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/c3"
                 android:layout_marginTop="25dp"
@@ -187,10 +183,49 @@
                 android:layout_below="@+id/c2"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="#69c370"
                 app:cardCornerRadius="25dp"
-                app:cardElevation="10dp" />
+                app:cardElevation="10dp" >
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/c3Image"
+                        android:layout_width="47dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/freezer_icon"
+                        android:layout_marginLeft="190dp"
+                        android:layout_marginTop="20dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/c3FoodTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shrimps"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/c3ExpiredDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expire in + 90 days"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_below="@id/c3FoodTitle"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+<!--begin 4th cardView -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/c4"
                 android:layout_marginTop="25dp"
@@ -199,9 +234,47 @@
                 android:layout_below="@+id/c3"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="#69c370"
                 app:cardCornerRadius="25dp"
-                app:cardElevation="10dp" />
+                app:cardElevation="10dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/c4Image"
+                        android:layout_width="47dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/freezer_icon"
+                        android:layout_marginLeft="190dp"
+                        android:layout_marginTop="20dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/c4FoodTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fish Fillet"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/c4ExpiredDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expire in + 90 days"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_below="@id/c4FoodTitle"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/c5"
@@ -211,9 +284,47 @@
                 android:layout_below="@+id/c4"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="#69c370"
                 app:cardCornerRadius="25dp"
-                app:cardElevation="10dp" />
+                app:cardElevation="10dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/c5Image"
+                        android:layout_width="47dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/freezer_icon"
+                        android:layout_marginLeft="190dp"
+                        android:layout_marginTop="20dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/c5FoodTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chicken nuggets"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/c5ExpiredDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expire in + 120 days"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:layout_below="@id/c5FoodTitle"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
 
         </RelativeLayout>
