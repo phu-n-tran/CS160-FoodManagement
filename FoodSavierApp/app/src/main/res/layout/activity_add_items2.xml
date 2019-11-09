@@ -34,7 +34,7 @@
 
     <Spinner
         android:id="@+id/spinnerCategoryAddItems2"
-        android:layout_width="70dp"
+        android:layout_width="86dp"
         android:layout_height="30dp"
         android:background="@drawable/style_spinner_container"
         android:spinnerMode="dropdown"
@@ -57,7 +57,7 @@
         tools:layout_editor_absoluteY="210dp"
         android:textSize="15dp"
         android:textStyle="italic"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="80dp"
         android:layout_marginTop="125dp"
         />
 
@@ -70,6 +70,7 @@
         android:layout_marginTop="170dp"
         android:background="@drawable/style_spinner_container"
         android:text="1"
+        android:inputType="number"
         android:textAlignment="center" />
 
     <TextView
@@ -81,7 +82,7 @@
         tools:layout_editor_absoluteY="281dp"
         android:textStyle="italic"
         android:textSize="15dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="80dp"
         android:layout_marginTop="175dp"
         />
 
@@ -102,11 +103,34 @@
         android:id="@+id/textViewExDateAddItems2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expired date:"
+        android:text="Expiration date:"
         android:textStyle="italic"
         android:textSize="15dp"
-        android:layout_marginLeft="45dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="225dp"
+        />
+
+    <TextView
+        android:id="@+id/textViewNotifySelectDateAddItems2"
+        android:layout_width="111dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="270dp"
+        android:background="@drawable/style_spinner_container"
+        android:text="Select Date"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textViewNotifyDateAddItems2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notification date:"
+        android:textStyle="italic"
+        android:textSize="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="275dp"
         />
 
 
@@ -116,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="480dp"
         android:layout_centerHorizontal="true"
         />
 
@@ -126,9 +150,7 @@
         android:layout_width="279dp"
         android:layout_height="137dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="260dp"
-        android:scaleX="0.9"
-        android:scaleY="0.9"
+        android:layout_marginTop="320dp"
         android:timePickerMode="spinner"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="500dp" />

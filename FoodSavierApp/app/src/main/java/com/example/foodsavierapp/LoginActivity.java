@@ -11,12 +11,18 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
+    //Intent
+    //CURRENT: (NONE)
+    //TRANSFER TO DASHBOARD ACTIVITY: username
+
     DatabaseHelper myDb;
     EditText editUsername, editPassword;
     Button btnLoginPage;
+    TextView noAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // initialize the database
         myDb = new DatabaseHelper(this);
+
+        noAccount = (TextView)findViewById(R.id.textViewNoAccountLogin);
 
         // initialize the edit texts
         editUsername = (EditText)findViewById(R.id.editTextLoginEmail);
@@ -37,6 +45,20 @@ public class LoginActivity extends AppCompatActivity {
         btnLoginPage = (Button) findViewById(R.id.btnLoginLogin);
         // method call: btnLoginPage button listener
         checkLoginAccount();
+
+
+        noAccountListener();
+
+    }
+
+    public void noAccountListener() {
+        noAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public TextWatcher loginTextWatcher = new TextWatcher() {

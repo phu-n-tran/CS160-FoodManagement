@@ -24,16 +24,17 @@ public class AddItemsActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
     // CURRENT: username
-    // AFTER TRANSFER: username, foodName, estimatedays, foodCategory
+    // AFTER TRANSFER TO ADDITEMS2ACTIVITY: username, foodName, estimatedays, foodCategory
     Intent intent;
 
     Button btnFreezer, btnPantry, btnFridge;
     ImageButton btnSearchItem;
     EditText editTextSearchResult;
-    CardView cardView1, cardView2, cardView3, cardView4, cardView5;
-    TextView c1Title, c2Title, c3Title, c4Title, c5Title;
-    TextView c1Expired, c2Expired, c3Expired, c4Expired, c5Expired;
-    ImageView c1Image, c2Image, c3Image, c4Image, c5Image;
+    CardView cardView1, cardView2, cardView3, cardView4, cardView5, cardView6, cardView7;
+    TextView c1Title, c2Title, c3Title, c4Title, c5Title, c6Title, c7Title;
+    TextView c1Expired, c2Expired, c3Expired, c4Expired, c5Expired, c6Expired, c7Expired;
+    ImageView c1Image, c2Image, c3Image, c4Image, c5Image, c6Image, c7Image;
+    ImageView logoImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,10 @@ public class AddItemsActivity extends AppCompatActivity {
         myDb = new DatabaseHelper(this);
         intent = new Intent(AddItemsActivity.this, AddItems2Activity.class);
         intent.putExtra("username", getIntent().getStringExtra("username"));
-        intent.putExtra("foodCategory", "Freezer");
+        intent.putExtra("foodCategory", "FREEZER");
+
+        // create home logo
+        logoImage = (ImageView)findViewById(R.id.logoAddItemActivity);
 
         // initialize Button
         btnFreezer = (Button)findViewById(R.id.btnFreezerAddItems);
@@ -60,25 +64,36 @@ public class AddItemsActivity extends AppCompatActivity {
         cardView3 = (CardView)findViewById(R.id.c3);
         cardView4 = (CardView)findViewById(R.id.c4);
         cardView5 = (CardView)findViewById(R.id.c5);
+        cardView6 = (CardView)findViewById(R.id.c6);
+        cardView7 = (CardView)findViewById(R.id.c7);
         // text view for title
         c1Title = (TextView)findViewById(R.id.c1FoodTitle);
         c2Title = (TextView)findViewById(R.id.c2FoodTitle);
         c3Title = (TextView)findViewById(R.id.c3FoodTitle);
         c4Title = (TextView)findViewById(R.id.c4FoodTitle);
         c5Title = (TextView)findViewById(R.id.c5FoodTitle);
+        c6Title = (TextView)findViewById(R.id.c6FoodTitle);
+        c7Title = (TextView)findViewById(R.id.c7FoodTitle);
         // textview for expires days
         c1Expired = (TextView)findViewById(R.id.c1ExpiredDays);
         c2Expired = (TextView)findViewById(R.id.c2ExpiredDays);
         c3Expired = (TextView)findViewById(R.id.c3ExpiredDays);
         c4Expired = (TextView)findViewById(R.id.c4ExpiredDays);
         c5Expired = (TextView)findViewById(R.id.c5ExpiredDays);
+        c6Expired = (TextView)findViewById(R.id.c6ExpiredDays);
+        c7Expired = (TextView)findViewById(R.id.c7ExpiredDays);
         // image view of cardview
         c1Image = (ImageView)findViewById(R.id.c1Image);
         c2Image = (ImageView)findViewById(R.id.c2Image);
         c3Image = (ImageView)findViewById(R.id.c3Image);
         c4Image = (ImageView)findViewById(R.id.c4Image);
         c5Image = (ImageView)findViewById(R.id.c5Image);
+        c6Image = (ImageView)findViewById(R.id.c6Image);
+        c7Image = (ImageView)findViewById(R.id.c7Image);
 
+
+        //Setting up
+        changeCardViewInfo(myDb.getAllFoodsFreezer(), R.drawable.freezer_icon);
 
         //*****************
         // ACTION LISTENERS
@@ -91,9 +106,24 @@ public class AddItemsActivity extends AppCompatActivity {
         cardView3.setOnClickListener(cardViewListeners);
         cardView4.setOnClickListener(cardViewListeners);
         cardView5.setOnClickListener(cardViewListeners);
+        cardView6.setOnClickListener(cardViewListeners);
+        cardView7.setOnClickListener(cardViewListeners);
 
         clickSearchButton();
 
+        homeLogoListener();
+
+    }
+
+    public void homeLogoListener() {
+        logoImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddItemsActivity.this, DashboardActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+            }
+        });
     }
 
     public void clickSearchButton() {
@@ -101,12 +131,13 @@ public class AddItemsActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String searchResult = editTextSearchResult.getText().toString();
+                        String searchResult = editTextSearchResult.getText().toString().toUpperCase();
                         // iff input is empty
                         if (searchResult.isEmpty()) {
                             Toast.makeText(AddItemsActivity.this, "Please enter item name", Toast.LENGTH_LONG).show();
                         }
                         else {
+                            intent.putExtra("estimatedays", "0");
                             intent.putExtra("foodname", searchResult);
                             startActivity(intent);
                         }
@@ -122,28 +153,38 @@ public class AddItemsActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.c1:
-                    intent.putExtra("foodname", c1Title.getText().toString());
+                    intent.putExtra("foodname", c1Title.getText().toString().toUpperCase());
                     intent.putExtra("estimatedays", c1Expired.getText().toString().split(" ")[3]);
                     startActivity(intent);
                     break;
                 case R.id.c2:
-                    intent.putExtra("foodname", c2Title.getText().toString());
+                    intent.putExtra("foodname", c2Title.getText().toString().toUpperCase());
                     intent.putExtra("estimatedays", c2Expired.getText().toString().split(" ")[3]);
                     startActivity(intent);
                     break;
                 case R.id.c3:
-                    intent.putExtra("foodname", c3Title.getText().toString());
+                    intent.putExtra("foodname", c3Title.getText().toString().toUpperCase());
                     intent.putExtra("estimatedays", c3Expired.getText().toString().split(" ")[3]);
                     startActivity(intent);
                     break;
                 case R.id.c4:
-                    intent.putExtra("foodname", c4Title.getText().toString());
+                    intent.putExtra("foodname", c4Title.getText().toString().toUpperCase());
                     intent.putExtra("estimatedays", c4Expired.getText().toString().split(" ")[3]);
                     startActivity(intent);
                     break;
                 case R.id.c5:
-                    intent.putExtra("foodname", c5Title.getText().toString());
+                    intent.putExtra("foodname", c5Title.getText().toString().toUpperCase());
                     intent.putExtra("estimatedays", c5Expired.getText().toString().split(" ")[3]);
+                    startActivity(intent);
+                    break;
+                case R.id.c6:
+                    intent.putExtra("foodname", c6Title.getText().toString().toUpperCase());
+                    intent.putExtra("estimatedays", c6Expired.getText().toString().split(" ")[3]);
+                    startActivity(intent);
+                    break;
+                case R.id.c7:
+                    intent.putExtra("foodname", c7Title.getText().toString().toUpperCase());
+                    intent.putExtra("estimatedays", c7Expired.getText().toString().split(" ")[3]);
                     startActivity(intent);
                     break;
             }
@@ -158,7 +199,7 @@ public class AddItemsActivity extends AppCompatActivity {
                    @Override
                    public void onClick(View v) {
                        // change intent 'foodCategory' value
-                       intent.putExtra("foodCategory", "Pantry");
+                       intent.putExtra("foodCategory", "PANTRY");
 
                        // enable other button
                        btnFreezer.setEnabled(true);
@@ -166,8 +207,8 @@ public class AddItemsActivity extends AppCompatActivity {
                        // change text color and background accordingly
                        btnFreezer.setTextColor(getResources().getColor(R.color.colorPrimary));
                        btnFridge.setTextColor(getResources().getColor(R.color.colorPrimary));
-                       btnFreezer.setBackgroundDrawable(getResources().getDrawable(R.drawable.style_button_border));
-                       btnFridge.setBackgroundDrawable(getResources().getDrawable(R.drawable.style_button_border));
+                       btnFreezer.setBackgroundResource(R.drawable.style_button_border);
+                       btnFridge.setBackgroundResource(R.drawable.style_button_border);
 
                        // disable the clicked button
                        btnPantry.setEnabled(false);
@@ -191,7 +232,7 @@ public class AddItemsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // change intent 'foodCategory' value
-                        intent.putExtra("foodCategory", "Freezer");
+                        intent.putExtra("foodCategory", "FREEZER");
 
                         // enable other button
                         btnPantry.setEnabled(true);
@@ -199,8 +240,8 @@ public class AddItemsActivity extends AppCompatActivity {
                         // change text color and background accordingly
                         btnPantry.setTextColor(getResources().getColor(R.color.colorPrimary));
                         btnFridge.setTextColor(getResources().getColor(R.color.colorPrimary));
-                        btnPantry.setBackgroundDrawable(getResources().getDrawable(R.drawable.style_button_border));
-                        btnFridge.setBackgroundDrawable(getResources().getDrawable(R.drawable.style_button_border));
+                        btnPantry.setBackgroundResource(R.drawable.style_button_border);
+                        btnFridge.setBackgroundResource(R.drawable.style_button_border);
 
                         // disable the clicked button
                         btnFreezer.setEnabled(false);
@@ -222,7 +263,7 @@ public class AddItemsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // change intent 'foodCategory' value
-                        intent.putExtra("foodCategory", "Fridge");
+                        intent.putExtra("foodCategory", "FRIDGE");
 
                         // enable other button
                         btnPantry.setEnabled(true);
@@ -230,8 +271,8 @@ public class AddItemsActivity extends AppCompatActivity {
                         // change text color and background accordingly
                         btnPantry.setTextColor(getResources().getColor(R.color.colorPrimary));
                         btnFreezer.setTextColor(getResources().getColor(R.color.colorPrimary));
-                        btnPantry.setBackgroundDrawable(getResources().getDrawable(R.drawable.style_button_border));
-                        btnFreezer.setBackgroundDrawable(getResources().getDrawable(R.drawable.style_button_border));
+                        btnPantry.setBackgroundResource(R.drawable.style_button_border);
+                        btnFreezer.setBackgroundResource(R.drawable.style_button_border);
 
                         // disable the clicked button
                         btnFridge.setEnabled(false);
@@ -283,6 +324,18 @@ public class AddItemsActivity extends AppCompatActivity {
                 c5Title.setText(res.getString(FOOD_NAME_INDEX));
                 c5Expired.setText("Expired in + " + res.getString(FOOD_EXPIRE_INDEX) + " days");
                 c5Image.setImageResource(r);
+
+                // 6th element
+                res.moveToNext();
+                c6Title.setText(res.getString(FOOD_NAME_INDEX));
+                c6Expired.setText("Expired in + " + res.getString(FOOD_EXPIRE_INDEX) + " days");
+                c6Image.setImageResource(r);
+
+                // 7th element
+                res.moveToNext();
+                c7Title.setText(res.getString(FOOD_NAME_INDEX));
+                c7Expired.setText("Expired in + " + res.getString(FOOD_EXPIRE_INDEX) + " days");
+                c7Image.setImageResource(r);
             }
         }
         catch (SQLException e) {

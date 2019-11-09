@@ -9,14 +9,18 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
+    //Intent (none)
+
     DatabaseHelper myDb;
     EditText editFname, editLname, editUsername, editPassword;
     Button btnRegPage;
+    TextView accountExist;
 
 
     @Override
@@ -26,6 +30,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         // initialize the database
         myDb = new DatabaseHelper(this);
+
+        accountExist = (TextView)findViewById(R.id.textViewExistAccountRegister);
 
         // initialize the edit texts
         editFname = (EditText)findViewById(R.id.editTextRegFirstName);
@@ -44,6 +50,18 @@ public class RegisterActivity extends AppCompatActivity {
         // call method: btnRegPage button listener
         createAccount();
 
+        noAccountListener();
+
+    }
+
+    public void noAccountListener() {
+        accountExist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public TextWatcher registerTextWatcher = new TextWatcher() {
@@ -94,7 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this, "Fail: Create Account Fail", Toast.LENGTH_LONG).show();
                             }
                             else {
-                                if(myDb.searchAccount(editUsername.getText().toString()))
+                                if(myDb.searchExistAccount(editUsername.getText().toString()))
                                     Toast.makeText(RegisterActivity.this, "Fail: Account already exist", Toast.LENGTH_LONG).show();
                                 else {
                                     boolean isInserted = myDb.insertAccount(editLname.getText().toString(),

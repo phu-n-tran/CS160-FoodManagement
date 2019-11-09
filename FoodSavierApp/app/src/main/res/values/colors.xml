@@ -3,4 +3,27 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorAppTheme">#69C370</color>
+    <color name="colorGray">#F3F7F3</color>
+
+    <color name="darkBlue">#2187D5</color>
+    <color name="black">#000000</color>
+    <color name="o_AppTheme">#6669C370</color>
+
+
+    <color name="c_Primary">#FFC107</color>
+    <color name="c_PrimaryDark">#FFA000</color>
+    <color name="c_backgroundcolor">#fcfcfc</color>
+    <color name="c_lightgray">#ededed</color>
+    <color name="c_deeppurple">#7c4dff</color>
+    <color name="c_yellow">#ffb300</color>
+    <color name="c_green">#00bfa5</color>
+    <color name="c_colorAccent">#FF4081</color>
+    <color name="c_darkblue">#23283a</color>
+    <color name="c_testcolorblue">#152b38</color>
+    <color name="c_pink">#fe104d</color>
+
+    <color name="o_white">#CCFFFFFF</color>
+    <color name="o_black_overlay">#66000000</color>
+
 </resources>
