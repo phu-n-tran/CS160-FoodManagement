@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogActivity"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:id="@+id/toolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:elevation="4dp" />
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/logoLogActivity"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/my_app_icon"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15sp"
+                    />
+
+                <Button
+                    android:id="@+id/btnCurrentLog"
+                    android:layout_width="85dp"
+                    android:layout_height="40dp"
+                    android:enabled="false"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/cardview_light_background"
+                    android:text="ON STOCK"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnHistoryLog"
+                    android:layout_width="85dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/style_button_border"
+                    android:textColor="@color/colorPrimary"
+                    android:text="HISTORY"
+                    android:layout_toRightOf="@id/btnCurrentLog"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginTop="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="Nothing in your inventory"
+                    android:textColor="@color/o_black_overlay"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="670dp"
+                    android:layout_marginTop="70dp"
+                    android:padding="4dp"
+                    android:scrollbars="vertical"
+                    />
+            </RelativeLayout>
+
+
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

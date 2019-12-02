@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:id="@+id/toolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:elevation="4dp" />
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <ImageView
+                    android:id="@+id/logoAboutUsActivity"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/my_app_icon"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"/>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="630dp"
+                    android:scrollbars="vertical"
+                    android:layout_marginTop="120dp"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+
+                        <TextView
+                            android:layout_width="290dp"
+                            android:layout_height="190dp"
+                            android:background="@drawable/style_shadow"
+                            android:padding="15dp"
+                            android:textSize="15sp"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:text="OUR MISSION:"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="90dp"
+                            />
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:text="• To fight the social problem of food waste, and"
+                            android:layout_marginTop="60dp"
+                            android:layout_marginLeft="110dp"
+                            />
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:text="• To help consumers keep track of their produce"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginLeft="110dp"
+                            />
+
+
+                        <TextView
+                            android:layout_width="290dp"
+                            android:layout_height="350dp"
+                            android:background="@drawable/style_shadow"
+                            android:padding="15dp"
+                            android:textSize="15sp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="220dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:text="ABOUT US:"
+                            android:layout_marginTop="240dp"
+                            android:layout_marginLeft="90dp"
+                            />
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:text="• Food Savier is an app designed to manage the food you buy"
+                            android:layout_marginTop="280dp"
+                            android:layout_marginLeft="110dp"
+                            />
+
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:text="• Simply enter the name of a food item and its expiration date"
+                            android:layout_marginTop="360dp"
+                            android:layout_marginLeft="110dp"
+                            />
+
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:text="• Check remotely what your current inventory contains"
+                            android:layout_marginTop="440dp"
+                            android:layout_marginLeft="110dp"
+                            />
+
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:text="• Send notifications will your items is about to expire\n\n\n\n\n"
+                            android:layout_marginTop="500dp"
+                            android:layout_marginLeft="110dp"
+                            />
+
+                    </RelativeLayout>
+
+                </ScrollView>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

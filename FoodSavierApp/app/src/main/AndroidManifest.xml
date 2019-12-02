@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.foodsavierapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/my_app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/my_app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Profile2Activity" android:label="@string/profile_name" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AboutUsActivity" android:label="@string/about_us_name" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".HelpActivity" android:label="@string/help_name" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".AddItems2Activity" android:label="@string/add_items" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".LogActivity" android:label="@string/log_name" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ProfileActivity" android:label="@string/profile_name" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".AddItemsActivity" android:label="@string/add_items" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".DashboardActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".AlarmReceiver" />
+    </application>
+
+</manifest>

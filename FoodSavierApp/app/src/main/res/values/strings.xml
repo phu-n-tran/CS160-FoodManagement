@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FoodSavierApp</string>
+    <string name="add_items">Add Item Page</string>
+    <string name="help_name">Help Page</string>
+    <string name="about_us_name">About Us Page</string>
+    <string name="profile_name">Profile Page</string>
+    <string name="log_name">Log Page</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>
