@@ -14,4 +14,4 @@ Below is the link that lead to the demo of our application:
 https://www.youtube.com/watch?v=2NHOKAQHmF4&feature=youtu.4be
 
 ### E/R diagram for the application
-<img src="FoodSavier_ERdiagram.png" />
+<img src="FoodSavier_ERdiagram.PNG" />
