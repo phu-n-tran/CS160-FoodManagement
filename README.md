@@ -15,3 +15,11 @@ https://www.youtube.com/watch?v=2NHOKAQHmF4&feature=youtu.4be
 
 ### E/R diagram for the application
 <img src="FoodSavier_ERdiagram.PNG" />
+
+### Application outline
+#### Prototypes
+<img src="FoodSavier_Prototype1.PNG" />
+<img src="FoodSavier_Prototype2.PNG" />
+
+#### Final Look
+<img src="FoodSavier_Final.PNG" />
